@@ -1,0 +1,42 @@
+networks:
+  pv-net:
+    driver: bridge
+
+services:
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: pv-cases-backend:latest
+    container_name: pv-backend
+    ports:
+      - "8080:8080"
+    networks:
+      - pv-net
+    environment:
+      - SPRING_PROFILES_ACTIVE=default
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "curl -sf http://localhost:8080/health | grep -q UP || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 90s
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_API_URL: http://localhost:8080
+    image: pv-cases-frontend:latest
+    container_name: pv-frontend
+    ports:
+      - "3000:3000"
+    networks:
+      - pv-net
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped

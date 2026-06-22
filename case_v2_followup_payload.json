@@ -1,0 +1,35 @@
+{
+  "case_id": "PV-2026-0451",
+  "version": 2,
+  "case_classification": "significant",
+  "extracted_at": "2026-04-15T11:30:00Z",
+  "source_document": "followup_report_PV-2026-0451.pdf",
+  "missing_fields": [
+    "sections.patient.weight_kg",
+    "sections.reporter.contact"
+  ],
+  "sections": {
+    "patient": {
+      "initials": { "value": "M.K.", "confidence": 0.98, "source": "p.1 §1" },
+      "age": { "value": "63", "confidence": 0.95, "source": "p.1 §1" },
+      "sex": { "value": "Male", "confidence": 0.99, "source": "p.1 §1" }
+    },
+    "suspect_drug": {
+      "drug_name": { "value": "Atorvastatin", "confidence": 0.97, "source": "p.2 §1" },
+      "dose": { "value": "40 mg", "confidence": 0.96, "source": "p.2 §1" },
+      "route": { "value": "Oral", "confidence": 0.96, "source": "p.2 §1" },
+      "indication": { "value": "Hypercholesterolemia", "confidence": 0.91, "source": "p.2 §2" },
+      "lot_number": { "value": "LT-2025-8841", "confidence": 0.83, "source": "p.2 §3" }
+    },
+    "adverse_event": {
+      "event_term": { "value": "Rhabdomyolysis", "confidence": 0.89, "source": "p.3 §1" },
+      "onset_date": { "value": "2026-03-12", "confidence": 0.90, "source": "p.3 §2" },
+      "outcome": { "value": "Recovering", "confidence": 0.78, "source": "p.4 §1" },
+      "seriousness": { "value": "Serious - Hospitalisation", "confidence": 0.92, "source": "p.4 §1" }
+    },
+    "reporter": {
+      "qualification": { "value": "Physician", "confidence": 0.95, "source": "p.1 §1" },
+      "country": { "value": "India", "confidence": 0.99, "source": "p.1 §1" }
+    }
+  }
+}
